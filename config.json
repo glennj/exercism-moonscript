@@ -33,7 +33,6 @@
     ]
   },
   "exercises": {
-    "concept": [],
     "practice": [
       {
         "slug": "hello-world",
@@ -42,9 +41,15 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 1
+      },
+      {
+        "slug": "leap",
+        "name": "Leap",
+        "uuid": "fe4c3a99-0d1e-4476-a9c6-73b676a7a427",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
       }
     ]
-  },
-  "key_features": [],
-  "tags": []
+  }
 }

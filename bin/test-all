@@ -1,18 +1,30 @@
 #!/usr/bin/env bash
+#
+# shellcheck disable=SC2164
 
-result=0
+unset CDPATH
 
 rm -fr test-exercises
 cp -r exercises/practice test-exercises
 cd test-exercises || exit 1
 
-for dir in */; do
-    exercise=${dir%/}
+result=0
+
+for exercise in *; do
+    [[ -d $exercise ]] || continue
+
+    echo
     echo "Testing $exercise..."
-    pushd "$exercise"
-    mv .meta/example.moon "$exercise.moon"
-    busted --verbose "./${exercise}_spec.moon" || (( ++result ))
-    popd
+    pushd "$exercise" >/dev/null
+
+    IFS=$'\t' read -r solution example < <(
+        jq -r '.files | [.solution[0], .example[0]] | @tsv' .meta/config.json
+    )
+
+    mv "$example" "$solution"
+    busted --verbose || (( ++result ))
+
+    popd >/dev/null
 done
 
 exit $result
