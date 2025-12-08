@@ -43,6 +43,14 @@
         "difficulty": 1
       },
       {
+        "slug": "hamming",
+        "name": "Hamming",
+        "uuid": "03f299a8-2f01-4c77-90a0-4bcc972e2559",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "leap",
         "name": "Leap",
         "uuid": "fe4c3a99-0d1e-4476-a9c6-73b676a7a427",

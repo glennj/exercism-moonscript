@@ -3,7 +3,7 @@
 -- ref: https://github.com/exercism/lua/blob/main/bin/generate-spec
 
 json = require 'dkjson'
--- moon = require "moon"
+-- require "moon.all"
 
 
 file_exists = (path) ->
@@ -30,14 +30,17 @@ write_file = (path, contents) ->
 
 included_tests_from_toml = (path) ->
   included = {}
-  last_uuid
+  local uuid, last_uuid
+  line_no = 0
 
   for line in io.lines(path)
+    line_no += 1
     for uuid in line\gmatch('%[([%x%-]+)%]')
       last_uuid = uuid
       included[uuid] = true
 
     if line\match('^include%s*=%s*false')
+      -- p { uuid: (uuid or "nil"), last_uuid: (last_uuid or "nil"), :line, :line_no, :included }
       included[last_uuid] = nil
 
   included
