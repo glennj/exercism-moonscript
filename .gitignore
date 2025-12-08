@@ -1,3 +1,5 @@
 test-exercises/
 bin/configlet.exe
 bin/configlet
+canonical-data/
+spec_generator.lua
