@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+result=0
+
+rm -fr test-exercises
+cp -r exercises/practice test-exercises
+cd test-exercises || exit 1
+
+for dir in */; do
+    exercise=${dir%/}
+    echo "Testing $exercise..."
+    pushd "$exercise"
+    mv .meta/example.moon "$exercise.moon"
+    busted --verbose "./${exercise}_spec.moon" || (( ++result ))
+    popd
+done
+
+exit $result

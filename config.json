@@ -1,0 +1,50 @@
+{
+  "language": "MoonScript",
+  "slug": "moonscript",
+  "active": true,
+  "status": {
+    "concept_exercises": false,
+    "test_runner": true,
+    "representer": false,
+    "analyzer": false
+  },
+  "blurb": "MoonScript is a dynamic scripting language that compiles into Lua. It gives you the power of one of the fastest scripting languages combined with a rich set of features.",
+  "version": 3,
+  "online_editor": {
+    "indent_style": "space",
+    "indent_size": 2,
+    "highlightjs_language": "moonscript"
+  },
+  "test_runner": {
+    "average_run_time": 1
+  },
+  "files": {
+    "solution": [
+      "%{kebab_slug}.moon"
+    ],
+    "test": [
+      "%{kebab_slug}_spec.moon"
+    ],
+    "example": [
+      ".meta/example.moon"
+    ],
+    "exemplar": [
+      ".meta/exemplar.moon"
+    ]
+  },
+  "exercises": {
+    "concept": [],
+    "practice": [
+      {
+        "slug": "hello-world",
+        "name": "Hello World",
+        "uuid": "8f6510f6-b884-4329-9f86-ad4327032b96",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1
+      }
+    ]
+  },
+  "key_features": [],
+  "tags": []
+}
