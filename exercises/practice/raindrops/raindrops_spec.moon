@@ -1,4 +1,4 @@
-raindrops = require('raindrops')
+raindrops = require 'raindrops'
 
 describe 'raindrops', ->
   it 'the sound for 1 is 1', ->

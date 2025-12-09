@@ -1,4 +1,4 @@
-count_eggs = require('eliuds-eggs')
+count_eggs = require 'eliuds-eggs'
 
 describe 'eliuds-eggs', ->
   it '0 eggs', ->

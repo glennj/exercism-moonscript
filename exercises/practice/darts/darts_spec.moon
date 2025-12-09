@@ -1,4 +1,4 @@
-darts = require('darts')
+darts = require 'darts'
 
 describe 'darts', ->
   it 'Missed target', ->

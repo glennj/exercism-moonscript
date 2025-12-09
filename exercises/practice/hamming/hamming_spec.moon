@@ -1,4 +1,4 @@
-hamming = require('hamming')
+hamming = require 'hamming'
 
 describe 'hamming', ->
   it 'empty strands', ->

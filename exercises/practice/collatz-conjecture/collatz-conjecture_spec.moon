@@ -1,4 +1,4 @@
-CollatzConjecture = require('collatz-conjecture')
+CollatzConjecture = require 'collatz-conjecture'
 
 describe 'collatz-conjecture', ->
   it 'zero steps for one', ->

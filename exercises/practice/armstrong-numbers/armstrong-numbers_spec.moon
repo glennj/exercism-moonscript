@@ -1,4 +1,4 @@
-ArmstrongNumbers = require('armstrong-numbers')
+ArmstrongNumbers = require 'armstrong-numbers'
 
 describe 'armstrong-numbers', ->
   it 'Zero is an Armstrong number', ->
