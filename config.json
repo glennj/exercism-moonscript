@@ -51,6 +51,14 @@
         "difficulty": 2
       },
       {
+        "slug": "collatz-conjecture",
+        "name": "Collatz Conjecture",
+        "uuid": "7baef7ac-16f6-4042-92b6-f1037de23a96",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "darts",
         "name": "Darts",
         "uuid": "4f75ff5d-f049-4053-8a96-86d45025b529",
