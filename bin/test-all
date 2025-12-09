@@ -1,30 +1,16 @@
 #!/usr/bin/env bash
-#
-# shellcheck disable=SC2164
 
 unset CDPATH
 
-rm -fr test-exercises
-cp -r exercises/practice test-exercises
-cd test-exercises || exit 1
+script_dir=$(realpath "$(dirname "$0")")
 
+cd "${script_dir}/../exercises/practice" || exit 4
 result=0
 
 for exercise in *; do
     [[ -d $exercise ]] || continue
 
-    echo
-    echo "Testing $exercise..."
-    pushd "$exercise" >/dev/null
-
-    IFS=$'\t' read -r solution example < <(
-        jq -r '.files | [.solution[0], .example[0]] | @tsv' .meta/config.json
-    )
-
-    mv "$example" "$solution"
-    busted --verbose || (( ++result ))
-
-    popd >/dev/null
+    "$script_dir/test-one" "$exercise" || (( ++result ))
 done
 
 exit $result

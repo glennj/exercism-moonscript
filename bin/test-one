@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+#
+# shellcheck disable=SC2164
+
+unset CDPATH
+
+cd "$(realpath "$(dirname "$0")/..")"
+
+exercise=$1
+exercise_dir=$(realpath "exercises/practice/$1")
+
+if [[ $# -eq 0 || -z $exercise ]]; then
+    echo "Usage: $0 exercise-slug" >&2
+    exit 2
+fi
+if [[ ! -d $exercise_dir ]]; then
+    echo "No such exercise: $exercise" >&2
+    exit 3
+fi
+
+test_dir=$( mktemp -d )
+trap 'rm -rf "$test_dir"' EXIT
+
+cd "$test_dir" || exit 4
+(cd "$exercise_dir"; tar cf - .) | tar xf -
+
+echo
+echo "Testing $exercise..."
+
+IFS=$'\t' read -r solution example < <(
+    jq -r '.files | [.solution[0], .example[0]] | @tsv' .meta/config.json
+)
+
+mv "$example" "$solution"
+busted --verbose || (( ++result ))
