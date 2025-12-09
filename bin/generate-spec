@@ -76,14 +76,16 @@ spec_generator = require('spec_generator')
 
 included_tests = included_tests_from_toml(tests_toml_path)
 
-process = (node) ->
+indent = (level) -> string.rep '  ', level
+
+process = (node, level=0) ->
   if node.cases
     output = {}
 
     if node.description
-      table.insert output, "describe '" .. node.description\lower! .. "', ->"
+      table.insert output, indent(level) .. "describe '#{node.description\lower!}', ->"
     else
-      table.insert output, "describe '" .. exercise_name .. "', ->"
+      table.insert output, indent(level) .. "describe '#{ exercise_name}', ->"
 
       if spec_generator.test_helpers
         table.insert output, spec_generator.test_helpers
@@ -91,25 +93,19 @@ process = (node) ->
     cases = {}
     for case in *node.cases
       if not case.uuid or included_tests[case.uuid]
-        table.insert cases, process(case)
+        table.insert cases, process(case, level + 1)
 
-    table.insert output, table.concat(cases, '\n\n')
+    table.insert output, table.concat(cases, '\n')
 
     return table.concat output, '\n'
 
-  else
-    template = [[
-  it '%s', ->
-%s]]
+  else -- no "cases" member
+    return indent(level) .. "it '#{node.description}', ->
+#{spec_generator.generate_test(node, level + 1)}
+"
 
-    return template\format node.description, spec_generator.generate_test(node)
-
-
-spec = ([[
-%s = require('%s')
-
-%s
-]])\format(spec_generator.module_name, exercise_name, process(canonical_data))
+spec = "#{spec_generator.module_name} = require '#{exercise_name}'"
+spec ..= "\n\n" .. process(canonical_data)
 
 write_file(spec_path, spec)
 -- os.execute('lua-format -i ' .. spec_path)
