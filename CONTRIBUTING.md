@@ -10,13 +10,15 @@
     bin/add-practice-exercise ${slug_name}
     ```
 
-    This adds the canonical data from problem-specifications into the `./canonical-data` directory.
+    This creates the scaffolding for the new exercise.
+    The test, stub and example files are empty.
+    The canonical data from problem-specifications gets added into your local `./canonical-data` directory.
 
 1. Review the canonical data and decide if there are any tests cases to exclude.
 
    If there are, add `include = false` properties in the exercise's `.meta/tests.toml` file.
 
-1. Considering the canonical data, decide if this exercise makes sense to generate the tests.
+1. Considering the canonical data, decide if this exercise makes sense to use a test generator.
 
     1. If no, create the test suite manually:
 
