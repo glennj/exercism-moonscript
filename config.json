@@ -124,6 +124,14 @@
         "difficulty": 2
       },
       {
+        "slug": "resistor-color-duo",
+        "name": "Resistor Color Duo",
+        "uuid": "2b5c2851-8bf7-4769-919e-c91d1e9b32c8",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "two-fer",
         "name": "Two-Fer",
         "uuid": "677295c3-9ee4-418d-89cb-f8f016228062",
