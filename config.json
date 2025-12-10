@@ -148,6 +148,14 @@
         "difficulty": 2
       },
       {
+        "slug": "rna-transcription",
+        "name": "RNA Transcription",
+        "uuid": "f0c2aca7-00a9-47df-a927-b9d7df578bd0",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "two-fer",
         "name": "Two-Fer",
         "uuid": "677295c3-9ee4-418d-89cb-f8f016228062",
