@@ -1,6 +1,6 @@
 # Contributing to the MoonScript Track
 
-... TODO ...
+... TODO -- types of contributions
 
 ## Creating a new Practice Exercise
 
@@ -25,8 +25,6 @@
         ```none
         exercises/practice/${slug_name}/${slug_name}_spec.moon
         ```
-
-        The filename can contain both hyphens and underscores. (TODO)
 
     2. If yes:
 

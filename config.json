@@ -108,6 +108,14 @@
         "difficulty": 2
       },
       {
+        "slug": "nucleotide-count",
+        "name": "Nucleotide Count",
+        "uuid": "9a2d0b74-0cba-464d-a960-8f7469be50a1",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "raindrops",
         "name": "Raindrops",
         "uuid": "9c6613c5-3df7-44a5-bb6e-4e7f0663b888",
