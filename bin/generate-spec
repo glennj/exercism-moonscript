@@ -43,8 +43,15 @@ included_tests_from_toml = (path) ->
   included
 
 
-export indent -- mark it as global so spec_generators can see it
+export indent, quote -- mark as global so spec_generators can see them
+
 indent = (text, level) -> string.rep('  ', level) .. text
+
+quote = (str) ->
+  if str\find("'")
+    "\"#{str\gsub('"', '\\"')}\""
+  else
+    "'#{str}'"
 
 
 local exercise_name, spec_generator, included_tests -- forward declarations
@@ -55,7 +62,7 @@ process = (node, level=0) ->
     output = {}
 
     if node.description
-      table.insert output, indent("describe '#{node.description\lower!}', ->", level)
+      table.insert output, indent("describe #{quote desc}, ->", level)
     else
       table.insert output, indent("describe '#{exercise_name}', ->", level)
 
@@ -72,7 +79,7 @@ process = (node, level=0) ->
     return table.concat output, '\n'
 
   else -- no "cases" member
-    test = "#{test_cmd} '#{node.description}', ->\n#{spec_generator.generate_test(node, level + 1)}\n"
+    test = "#{test_cmd} #{quote node.description}, ->\n#{spec_generator.generate_test(node, level + 1)}\n"
     test_cmd = 'pending'
     return indent test, level
 
