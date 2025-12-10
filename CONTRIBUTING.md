@@ -42,6 +42,7 @@
             - `generate_test` : this is a function that creates the body of each test case. It takes 2 parameters:
                 - `case` is the Lua object for the test case 
                 - `level`, default value 2, is the indentation level of the body.
+            - `test_helpers` (optional) : a block of code that gets added at the top of the top-level `describe` block.
 
            Look to see how it's implemented for other exercises.
 
@@ -59,9 +60,10 @@
     bin/test-one ${slug_name}
     ```
 
-1. When you're satisfied with the solution, create the stub file `${slug_name}.moon`,.
-
-    See what it looks like in other exercises.
+1. When you're satisfied with the solution, create the stub file `${slug_name}.moon`.
+   Provide a stub for each function being tested.
+   The stub function should emit an error.
+   See what it looks like in other exercises.
 
 1. Run `bin/configlet lint` to ensure that the new exercise conforms to Exercism standards.
 

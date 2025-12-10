@@ -1,7 +1,7 @@
 #!/usr/bin/env moon
 -- ref: https://github.com/exercism/lua/blob/main/bin/generate-spec
 
-json = require 'dkjson'.use_lpeg()
+json = require 'dkjson'
 -- require "moon.all"
 
 
