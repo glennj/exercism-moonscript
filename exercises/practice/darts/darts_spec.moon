@@ -3,52 +3,52 @@ darts = require 'darts'
 describe 'darts', ->
   it 'Missed target', ->
     result = darts.score -9, 9
-    assert.are.same 0, result
+    assert.are.equal 0, result
 
-  it 'On the outer circle', ->
+  pending 'On the outer circle', ->
     result = darts.score 0, 10
-    assert.are.same 1, result
+    assert.are.equal 1, result
 
-  it 'On the middle circle', ->
+  pending 'On the middle circle', ->
     result = darts.score -5, 0
-    assert.are.same 5, result
+    assert.are.equal 5, result
 
-  it 'On the inner circle', ->
+  pending 'On the inner circle', ->
     result = darts.score 0, -1
-    assert.are.same 10, result
+    assert.are.equal 10, result
 
-  it 'Exactly on center', ->
+  pending 'Exactly on center', ->
     result = darts.score 0, 0
-    assert.are.same 10, result
+    assert.are.equal 10, result
 
-  it 'Near the center', ->
+  pending 'Near the center', ->
     result = darts.score -0.1, -0.1
-    assert.are.same 10, result
+    assert.are.equal 10, result
 
-  it 'Just within the inner circle', ->
+  pending 'Just within the inner circle', ->
     result = darts.score 0.7, 0.7
-    assert.are.same 10, result
+    assert.are.equal 10, result
 
-  it 'Just outside the inner circle', ->
+  pending 'Just outside the inner circle', ->
     result = darts.score 0.8, -0.8
-    assert.are.same 5, result
+    assert.are.equal 5, result
 
-  it 'Just within the middle circle', ->
+  pending 'Just within the middle circle', ->
     result = darts.score -3.5, 3.5
-    assert.are.same 5, result
+    assert.are.equal 5, result
 
-  it 'Just outside the middle circle', ->
+  pending 'Just outside the middle circle', ->
     result = darts.score -3.6, -3.6
-    assert.are.same 1, result
+    assert.are.equal 1, result
 
-  it 'Just within the outer circle', ->
+  pending 'Just within the outer circle', ->
     result = darts.score -7.0, 7.0
-    assert.are.same 1, result
+    assert.are.equal 1, result
 
-  it 'Just outside the outer circle', ->
+  pending 'Just outside the outer circle', ->
     result = darts.score 7.1, -7.1
-    assert.are.same 0, result
+    assert.are.equal 0, result
 
-  it 'Asymmetric position between the inner and middle circles', ->
+  pending 'Asymmetric position between the inner and middle circles', ->
     result = darts.score 0.5, -4
-    assert.are.same 5, result
+    assert.are.equal 5, result

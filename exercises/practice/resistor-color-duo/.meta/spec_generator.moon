@@ -6,6 +6,5 @@
       "result = ResistorColorDuo.value #{table.concat input, ', '}",
       "assert.are.same #{case.expected}, result"
     }
-    lines = [string.rep('  ', level) .. line for line in *lines]
-    table.concat lines, '\n'
+    table.concat [indent line, level for line in *lines], '\n'
 }

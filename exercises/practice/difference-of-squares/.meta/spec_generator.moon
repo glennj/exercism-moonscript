@@ -4,10 +4,7 @@
     snakify = (s) -> s\gsub("%f[A-Z].", (upper) -> "_#{upper\lower!}")
     lines = {
       "result = DifferenceOfSquares.#{snakify case.property} #{case.input.number}",
-      "assert.are.same #{case.expected}, result"
+      "assert.are.equal #{case.expected}, result"
     }
-    for i, line in ipairs lines
-      lines[i] = string.rep('  ', level) .. line
-
-    table.concat lines, "\n"
+    table.concat [indent line, level for line in *lines], '\n'
 }

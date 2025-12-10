@@ -2,7 +2,6 @@
 -- ref: https://github.com/exercism/lua/blob/main/bin/generate-spec
 
 json = require 'dkjson'
--- require "moon.all"
 
 
 file_exists = (path) ->
@@ -39,54 +38,26 @@ included_tests_from_toml = (path) ->
       included[uuid] = true
 
     if line\match('^include%s*=%s*false')
-      -- p { uuid: (uuid or "nil"), last_uuid: (last_uuid or "nil"), :line, :line_no, :included }
       included[last_uuid] = nil
 
   included
 
 
-exercise_name = arg[1]
-snake_name = exercise_name\gsub("-", "_")
-
-exercise_directory = 'exercises/practice/' .. exercise_name
-
-generator_module = "#{exercise_directory}/.meta/spec_generator.moon"
-
-if not file_exists(generator_module)
-  io.stderr\write "[ERROR] #{generator_module} does not exist\n"
-  os.exit(5)
+export indent -- mark it as global so spec_generators can see it
+indent = (text, level) -> string.rep('  ', level) .. text
 
 
-package.path = exercise_directory .. '/.meta/?.lua' .. ';' .. package.path
-
-canonical_data_url = 'https://raw.githubusercontent.com/exercism/problem-specifications/main/exercises/' .. exercise_name .. '/canonical-data.json'
-canonical_data_path = 'canonical-data/' .. exercise_name .. '.json'
-spec_path = exercise_directory .. '/' .. snake_name .. '_spec.moon'
-tests_toml_path = exercise_directory .. '/.meta/tests.toml'
-
-assert os.execute('mkdir -p `dirname ' .. canonical_data_path .. '`')
-assert os.execute('curl ' .. canonical_data_url .. ' -s -o ' .. canonical_data_path)
-
-canonical_data_json = read_file(canonical_data_path)
-canonical_data = json.decode(canonical_data_json)
-
--- moon.p { path: package.path }
-
-assert os.execute("moonc #{generator_module}")
-spec_generator = require('spec_generator')
-
-included_tests = included_tests_from_toml(tests_toml_path)
-
-indent = (level) -> string.rep '  ', level
+local exercise_name, spec_generator, included_tests -- forward declarations
+test_cmd = 'it'
 
 process = (node, level=0) ->
   if node.cases
     output = {}
 
     if node.description
-      table.insert output, indent(level) .. "describe '#{node.description\lower!}', ->"
+      table.insert output, indent("describe '#{node.description\lower!}', ->", level)
     else
-      table.insert output, indent(level) .. "describe '#{exercise_name}', ->"
+      table.insert output, indent("describe '#{exercise_name}', ->", level)
 
       if spec_generator.test_helpers
         table.insert output, spec_generator.test_helpers
@@ -101,12 +72,42 @@ process = (node, level=0) ->
     return table.concat output, '\n'
 
   else -- no "cases" member
-    return indent(level) .. "it '#{node.description}', ->
-#{spec_generator.generate_test(node, level + 1)}
-"
+    test = "#{test_cmd} '#{node.description}', ->\n#{spec_generator.generate_test(node, level + 1)}\n"
+    test_cmd = 'pending'
+    return indent test, level
+
+-- ----------------------------------------------------------
+-- "main"
+-- ----------------------------------------------------------
+exercise_name = arg[1]
+snake_name = exercise_name\gsub("-", "_")
+
+exercise_directory = 'exercises/practice/' .. exercise_name
+
+generator_module = "#{exercise_directory}/.meta/spec_generator.moon"
+
+if not file_exists(generator_module)
+  io.stderr\write "[ERROR] #{generator_module} does not exist\n"
+  os.exit(5)
+
+canonical_data_url = "https://raw.githubusercontent.com/exercism/problem-specifications/main/exercises/#{exercise_name}/canonical-data.json"
+canonical_data_path = "canonical-data/#{exercise_name}.json"
+
+assert os.execute('mkdir -p "$(dirname "' .. canonical_data_path .. '")"')
+assert os.execute('curl "' .. canonical_data_url .. '" -s -o "' .. canonical_data_path .. '"')
+
+canonical_data_json = read_file(canonical_data_path)
+canonical_data = json.decode(canonical_data_json)
+
+assert os.execute("moonc #{generator_module}")
+package.path ..= ";#{exercise_directory}/.meta/?.lua"
+spec_generator = require('spec_generator')
+
+tests_toml_path = exercise_directory .. '/.meta/tests.toml'
+included_tests = included_tests_from_toml(tests_toml_path)
 
 spec = "#{spec_generator.module_name} = require '#{snake_name}'"
 spec ..= "\n\n" .. process(canonical_data)
 
+spec_path = exercise_directory .. '/' .. snake_name .. '_spec.moon'
 write_file(spec_path, spec)
--- os.execute('lua-format -i ' .. spec_path)

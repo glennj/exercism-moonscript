@@ -6,7 +6,7 @@
     if case.property == "colorCode"
       lines = {
         "result = ResistorColor.color_code '#{case.input.color}'",
-        "assert.are.same #{case.expected}, result"
+        "assert.are.equal #{case.expected}, result"
       }
     else
       lines = {
@@ -15,8 +15,7 @@
         "assert.are.same expected, result"
       }
 
-    lines = [string.rep('  ', level) .. line for line in *lines]
-    table.concat lines, '\n'
+    table.concat [indent(line, level) for line in *lines], '\n'
 }
 
 

@@ -4,17 +4,17 @@ describe 'resistor-color', ->
   describe 'color codes', ->
     it 'Black', ->
       result = ResistorColor.color_code 'black'
-      assert.are.same 0, result
+      assert.are.equal 0, result
 
-    it 'White', ->
+    pending 'White', ->
       result = ResistorColor.color_code 'white'
-      assert.are.same 9, result
+      assert.are.equal 9, result
 
-    it 'Orange', ->
+    pending 'Orange', ->
       result = ResistorColor.color_code 'orange'
-      assert.are.same 3, result
+      assert.are.equal 3, result
 
-  it 'Colors', ->
+  pending 'Colors', ->
     expected = {'black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey', 'white'}
     result = ResistorColor.colors!
     assert.are.same expected, result

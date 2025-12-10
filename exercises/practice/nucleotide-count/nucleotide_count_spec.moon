@@ -6,21 +6,21 @@ describe 'nucleotide-count', ->
     result = nucleotide_count ''
     assert.are.same expected, result
 
-  it 'can count one nucleotide in single-character input', ->
+  pending 'can count one nucleotide in single-character input', ->
     expected = A: 0, C: 0, G: 1, T: 0
     result = nucleotide_count 'G'
     assert.are.same expected, result
 
-  it 'strand with repeated nucleotide', ->
+  pending 'strand with repeated nucleotide', ->
     expected = A: 0, C: 0, G: 7, T: 0
     result = nucleotide_count 'GGGGGGG'
     assert.are.same expected, result
 
-  it 'strand with multiple nucleotides', ->
+  pending 'strand with multiple nucleotides', ->
     expected = A: 20, C: 12, G: 17, T: 21
     result = nucleotide_count 'AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC'
     assert.are.same expected, result
 
-  it 'strand with invalid nucleotides', ->
+  pending 'strand with invalid nucleotides', ->
     f = -> nucleotide_count 'AGXXACT'
     assert.has.errors f, 'Invalid nucleotide in strand'

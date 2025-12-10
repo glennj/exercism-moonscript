@@ -27,9 +27,11 @@ cd "$test_dir" || exit 4
 echo
 echo "Testing $exercise..."
 
-IFS=$'\t' read -r solution example < <(
-    jq -r '.files | [.solution[0], .example[0]] | @tsv' .meta/config.json
+IFS=$'\t' read -r solution tests example < <(
+    jq -r '.files | [.solution[0], .test[0], .example[0]] | @tsv' .meta/config.json
 )
 
 mv "$example" "$solution"
-busted --verbose || (( ++result ))
+perl -i -pe 's/^\s+\Kpending\b/it/' "$tests"
+
+busted --verbose

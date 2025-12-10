@@ -5,26 +5,26 @@ describe 'reverse-string', ->
     result = reverse ""
     assert.are.same "", result
 
-  it 'a word', ->
+  pending 'a word', ->
     result = reverse "robot"
     assert.are.same "tobor", result
 
-  it 'a capitalized word', ->
+  pending 'a capitalized word', ->
     result = reverse "Ramen"
     assert.are.same "nemaR", result
 
-  it 'a sentence with punctuation', ->
+  pending 'a sentence with punctuation', ->
     result = reverse "I'm hungry!"
     assert.are.same "!yrgnuh m'I", result
 
-  it 'a palindrome', ->
+  pending 'a palindrome', ->
     result = reverse "racecar"
     assert.are.same "racecar", result
 
-  it 'an even-sized word', ->
+  pending 'an even-sized word', ->
     result = reverse "drawer"
     assert.are.same "reward", result
 
-  it 'wide characters', ->
+  pending 'wide characters', ->
     result = reverse "子猫"
     assert.are.same "猫子", result

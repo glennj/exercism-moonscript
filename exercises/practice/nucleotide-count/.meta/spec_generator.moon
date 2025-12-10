@@ -9,13 +9,12 @@
         "assert.has.errors f, '#{case.expected.error}'"
       }
     else
+      -- use "same", not "equal", to compare tables
       lines = {
         "expected = A: #{case.expected.A}, C: #{case.expected.C}, G: #{case.expected.G}, T: #{case.expected.T}"
         "result = nucleotide_count '#{case.input.strand}'",
         "assert.are.same expected, result"
       }
 
-    lines = [string.rep('  ', level) .. line for line in *lines]
-    table.concat lines, '\n'
+    table.concat [indent line, level for line in *lines], '\n'
 }
-

@@ -6,41 +6,41 @@ describe 'bank_account', ->
     acct = BankAccount!
     acct\open!
     result = acct\balance!
-    assert.are.same 0, result
+    assert.are.equal 0, result
 
-  it "Single deposit", ->
+  pending "Single deposit", ->
     acct = BankAccount!
     acct\open!
     acct\deposit 100
     result = acct\balance!
-    assert.are.same 100, result
+    assert.are.equal 100, result
 
-  it "Multiple deposits", ->
+  pending "Multiple deposits", ->
     acct = BankAccount!
     acct\open!
     acct\deposit 100
     acct\deposit 50
     result = acct\balance!
-    assert.are.same 150, result
+    assert.are.equal 150, result
 
-  it "Withdraw once", ->
+  pending "Withdraw once", ->
     acct = BankAccount!
     acct\open!
     acct\deposit 100
     acct\withdraw 75
     result = acct\balance!
-    assert.are.same 25, result
+    assert.are.equal 25, result
 
-  it "Withdraw twice", ->
+  pending "Withdraw twice", ->
     acct = BankAccount!
     acct\open!
     acct\deposit 100
     acct\withdraw 80
     acct\withdraw 20
     result = acct\balance!
-    assert.are.same 0, result
+    assert.are.equal 0, result
 
-  it "Can do multiple operations sequentially", ->
+  pending "Can do multiple operations sequentially", ->
     acct = BankAccount!
     acct\open!
     acct\deposit 100
@@ -49,61 +49,61 @@ describe 'bank_account', ->
     acct\deposit 60
     acct\withdraw 50
     result = acct\balance!
-    assert.are.same 20, result
+    assert.are.equal 20, result
 
-  it "Cannot check balance of closed account", ->
+  pending "Cannot check balance of closed account", ->
     acct = BankAccount!
     acct\open!
     acct\close!
     assert.has.errors acct\balance, "account not open"
 
-  it "Cannot deposit into closed account", ->
+  pending "Cannot deposit into closed account", ->
     acct = BankAccount!
     acct\open!
     acct\close!
     assert.has.errors (-> acct\deposit 50), "account not open"
 
-  it "Cannot deposit into unopened account", ->
+  pending "Cannot deposit into unopened account", ->
     acct = BankAccount!
     assert.has.errors (-> acct\deposit 50), "account not open"
 
-  it "Cannot withdraw from closed account", ->
+  pending "Cannot withdraw from closed account", ->
     acct = BankAccount!
     acct\open!
     acct\close!
     assert.has.errors (-> acct\withdraw 50), "account not open"
 
-  it "Cannot close an account that was not opened", ->
+  pending "Cannot close an account that was not opened", ->
     acct = BankAccount!
     assert.has.errors acct\close, "account not open"
 
-  it "Cannot open an already opened account", ->
+  pending "Cannot open an already opened account", ->
     acct = BankAccount!
     acct\open!
     assert.has.errors acct\open, "account already open"
 
-  it "Reopened account does not retain balance", ->
+  pending "Reopened account does not retain balance", ->
     acct = BankAccount!
     acct\open!
     acct\deposit 50
     acct\close!
     acct\open!
     result = acct\balance!
-    assert.are.same 0, result
+    assert.are.equal 0, result
 
-  it "Cannot withdraw more than deposited", ->
+  pending "Cannot withdraw more than deposited", ->
     acct = BankAccount!
     acct\open!
     acct\deposit 25
     assert.has.errors (-> acct\withdraw 50), "amount must be less than balance"
 
-  it "Cannot withdraw negative", ->
+  pending "Cannot withdraw negative", ->
     acct = BankAccount!
     acct\open!
     acct\deposit 100
     assert.has.errors (-> acct\withdraw -50), "amount must be greater than 0"
 
-  it "Cannot deposit negative", ->
+  pending "Cannot deposit negative", ->
     acct = BankAccount!
     acct\open!
     assert.has.errors (-> acct\deposit -50), "amount must be greater than 0"

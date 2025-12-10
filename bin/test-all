@@ -10,7 +10,7 @@ result=0
 for exercise in *; do
     [[ -d $exercise ]] || continue
 
-    "$script_dir/test-one" "$exercise" || (( ++result ))
+    "$script_dir"/test-one "$exercise" || (( ++result ))
 done
 
 exit $result

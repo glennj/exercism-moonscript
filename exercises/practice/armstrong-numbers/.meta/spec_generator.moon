@@ -1,6 +1,9 @@
 {
   module_name: 'ArmstrongNumbers',
-  generate_test: (case) ->
-    "    result = ArmstrongNumbers.is_armstrong #{case.input.number}
-    assert.are.same #{case.expected}, result"
+  generate_test: (case, level) ->
+    lines = {
+      "result = ArmstrongNumbers.is_armstrong #{case.input.number}",
+      "assert.is_#{case.expected} result"
+    }
+    table.concat [indent line, level for line in *lines], '\n'
 }
