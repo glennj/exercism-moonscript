@@ -165,6 +165,14 @@
         "status": "wip"
       },
       {
+        "slug": "micro-blog",
+        "name": "Micro Blog",
+        "uuid": "e4f7ccfc-fcc4-4b93-a392-e6e5b3df95c1",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "reverse-string",
         "name": "Reverse String",
         "uuid": "e759df78-e2e9-4520-9aa7-e12a172d5ece",
