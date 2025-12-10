@@ -1,4 +1,4 @@
-reverse = require 'reverse-string'
+reverse = require 'reverse_string'
 
 describe 'reverse-string', ->
   it 'an empty string', ->

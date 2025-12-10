@@ -1,4 +1,4 @@
-BankAccount = require('bank-account')
+BankAccount = require('bank_account')
 
 describe 'bank_account', ->
 

@@ -4,10 +4,10 @@
   ],
   "files": {
     "solution": [
-      "reverse-string.moon"
+      "reverse_string.moon"
     ],
     "test": [
-      "reverse-string_spec.moon"
+      "reverse_string_spec.moon"
     ],
     "example": [
       ".meta/example.moon"

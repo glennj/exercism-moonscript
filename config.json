@@ -20,10 +20,10 @@
   },
   "files": {
     "solution": [
-      "%{kebab_slug}.moon"
+      "%{snake_slug}.moon"
     ],
     "test": [
-      "%{kebab_slug}_spec.moon"
+      "%{snake_slug}_spec.moon"
     ],
     "example": [
       ".meta/example.moon"

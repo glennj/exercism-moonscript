@@ -60,6 +60,7 @@ shift "$((OPTIND - 1))"
 (( $# >= 1 )) || help_and_exit
 
 slug="${1}"
+snake_slug=${1//-/_}
 
 if [[ -z "${author}" ]]; then
     read -rp 'Your GitHub username: ' author

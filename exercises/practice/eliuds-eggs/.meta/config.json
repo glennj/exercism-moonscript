@@ -4,10 +4,10 @@
   ],
   "files": {
     "solution": [
-      "eliuds-eggs.moon"
+      "eliuds_eggs.moon"
     ],
     "test": [
-      "eliuds-eggs_spec.moon"
+      "eliuds_eggs_spec.moon"
     ],
     "example": [
       ".meta/example.moon"

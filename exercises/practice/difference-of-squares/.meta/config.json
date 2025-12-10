@@ -4,10 +4,10 @@
   ],
   "files": {
     "solution": [
-      "difference-of-squares.moon"
+      "difference_of_squares.moon"
     ],
     "test": [
-      "difference-of-squares_spec.moon"
+      "difference_of_squares_spec.moon"
     ],
     "example": [
       ".meta/example.moon"

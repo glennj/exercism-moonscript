@@ -4,10 +4,10 @@
   ],
   "files": {
     "solution": [
-      "two-fer.moon"
+      "two_fer.moon"
     ],
     "test": [
-      "two-fer_spec.moon"
+      "two_fer_spec.moon"
     ],
     "example": [
       ".meta/example.moon"

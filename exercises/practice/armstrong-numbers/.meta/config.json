@@ -4,10 +4,10 @@
   ],
   "files": {
     "solution": [
-      "armstrong-numbers.moon"
+      "armstrong_numbers.moon"
     ],
     "test": [
-      "armstrong-numbers_spec.moon"
+      "armstrong_numbers_spec.moon"
     ],
     "example": [
       ".meta/example.moon"

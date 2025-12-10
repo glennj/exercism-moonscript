@@ -6,10 +6,10 @@
   ],
   "files": {
     "solution": [
-      "hello-world.moon"
+      "hello_world.moon"
     ],
     "test": [
-      "hello-world_spec.moon"
+      "hello_world_spec.moon"
     ],
     "example": [
       ".meta/example.moon"

@@ -1,4 +1,4 @@
-TwoFer = require 'two-fer'
+TwoFer = require 'two_fer'
 
 describe 'two-fer', ->
   it 'no name given', ->

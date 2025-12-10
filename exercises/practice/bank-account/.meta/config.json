@@ -4,10 +4,10 @@
   ],
   "files": {
     "solution": [
-      "bank-account.moon"
+      "bank_account.moon"
     ],
     "test": [
-      "bank-account_spec.moon"
+      "bank_account_spec.moon"
     ],
     "example": [
       ".meta/example.moon"

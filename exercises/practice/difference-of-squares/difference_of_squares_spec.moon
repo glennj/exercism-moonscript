@@ -1,4 +1,4 @@
-DifferenceOfSquares = require 'difference-of-squares'
+DifferenceOfSquares = require 'difference_of_squares'
 
 describe 'difference-of-squares', ->
   describe 'square the sum of the numbers up to the given number', ->

@@ -46,6 +46,7 @@ included_tests_from_toml = (path) ->
 
 
 exercise_name = arg[1]
+snake_name = exercise_name\gsub("-", "_")
 
 exercise_directory = 'exercises/practice/' .. exercise_name
 
@@ -104,7 +105,7 @@ process = (node, level=0) ->
 #{spec_generator.generate_test(node, level + 1)}
 "
 
-spec = "#{spec_generator.module_name} = require '#{exercise_name}'"
+spec = "#{spec_generator.module_name} = require '#{snake_name}'"
 spec ..= "\n\n" .. process(canonical_data)
 
 write_file(spec_path, spec)

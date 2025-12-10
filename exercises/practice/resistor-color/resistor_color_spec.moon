@@ -1,4 +1,4 @@
-ResistorColor = require 'resistor-color'
+ResistorColor = require 'resistor_color'
 
 describe 'resistor-color', ->
 

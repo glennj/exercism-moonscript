@@ -4,10 +4,10 @@
   ],
   "files": {
     "solution": [
-      "resistor-color.moon"
+      "resistor_color.moon"
     ],
     "test": [
-      "resistor-color_spec.moon"
+      "resistor_color_spec.moon"
     ],
     "example": [
       ".meta/example.moon"
