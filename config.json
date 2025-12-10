@@ -180,6 +180,14 @@
         "difficulty": 3
       },
       {
+        "slug": "clock",
+        "name": "Clock",
+        "uuid": "adaba938-9589-431c-a27a-2da6571b9cd2",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "gigasecond",
         "name": "Gigasecond",
         "uuid": "fa599a9b-9cc2-44f7-8593-4dea6b1eccc0",
