@@ -245,6 +245,14 @@
         "difficulty": 3
       },
       {
+        "slug": "queen-attack",
+        "name": "Queen Attack",
+        "uuid": "3f98afe8-f867-448e-be3f-2fb3dd36cdc6",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "reverse-string",
         "name": "Reverse String",
         "uuid": "e759df78-e2e9-4520-9aa7-e12a172d5ece",
