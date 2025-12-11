@@ -188,6 +188,14 @@
         "difficulty": 3
       },
       {
+        "slug": "dnd-character",
+        "name": "D&D Character",
+        "uuid": "4857b012-eb5d-4538-b17e-8a1eb2206285",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "gigasecond",
         "name": "Gigasecond",
         "uuid": "fa599a9b-9cc2-44f7-8593-4dea6b1eccc0",
