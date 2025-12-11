@@ -301,6 +301,14 @@
         "difficulty": 4
       },
       {
+        "slug": "acronym",
+        "name": "Acronym",
+        "uuid": "c8246501-0d84-4055-beb7-7ad79b0d88d9",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "pig-latin",
         "name": "Pig Latin",
         "uuid": "cae7aa86-e805-41b3-9025-82146f585b4c",
