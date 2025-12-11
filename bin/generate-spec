@@ -1,7 +1,9 @@
 #!/usr/bin/env moon
 -- ref: https://github.com/exercism/lua/blob/main/bin/generate-spec
 
+require 'moonscript'
 json = require 'dkjson'
+-- import p from require 'moon'
 
 
 file_exists = (path) ->
@@ -109,9 +111,8 @@ canonical_data = json.decode(canonical_data_json)
 tests_toml_path = exercise_directory .. '/.meta/tests.toml'
 included_tests = included_tests_from_toml(tests_toml_path)
 
-assert os.execute("moonc #{generator_module}")
-package.path ..= ";#{exercise_directory}/.meta/?.lua"
-spec_generator = require('spec_generator')
+package.moonpath = "#{exercise_directory}/.meta/?.moon;#{package.moonpath}"
+spec_generator = require 'spec_generator'
 
 spec = ''
 if spec_generator.module_name
@@ -123,3 +124,5 @@ spec ..= "\n\n" .. process(canonical_data)
 
 spec_path = exercise_directory .. '/' .. snake_name .. '_spec.moon'
 write_file(spec_path, spec)
+
+print "Created #{spec_path}"
