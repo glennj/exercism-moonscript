@@ -1,6 +1,8 @@
 BinarySearch = require 'binary_search'
 
 describe 'binary-search', ->
+  -- Remember, Lua (and MoonScript) use 1-based indexing.
+  
   it 'finds a value in an array with one element', ->
     list = {6}
     index = BinarySearch.find list, 6

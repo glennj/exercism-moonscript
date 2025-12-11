@@ -1,5 +1,8 @@
 {
   module_name: 'BinarySearch',
+  test_helpers: [[
+  -- Remember, Lua (and MoonScript) use 1-based indexing.
+  ]]
   generate_test: (case, level) ->
     local lines
     if type(case.expected) == 'number'
