@@ -164,6 +164,14 @@
         "difficulty": 2
       },
       {
+        "slug": "anagram",
+        "name": "Anagram",
+        "uuid": "64808988-f990-4804-ad31-952254a879d9",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "bank-account",
         "name": "Bank Account",
         "uuid": "8921233f-5198-4694-9767-5ebec4984594",
