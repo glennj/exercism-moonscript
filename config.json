@@ -164,6 +164,14 @@
         "difficulty": 2
       },
       {
+        "slug": "acronym",
+        "name": "Acronym",
+        "uuid": "c8246501-0d84-4055-beb7-7ad79b0d88d9",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "all-your-base",
         "name": "All Your Base",
         "uuid": "1145b6ac-85ec-4542-b721-a31011de5484",
@@ -301,17 +309,17 @@
         "difficulty": 4
       },
       {
-        "slug": "acronym",
-        "name": "Acronym",
-        "uuid": "c8246501-0d84-4055-beb7-7ad79b0d88d9",
+        "slug": "pig-latin",
+        "name": "Pig Latin",
+        "uuid": "cae7aa86-e805-41b3-9025-82146f585b4c",
         "practices": [],
         "prerequisites": [],
         "difficulty": 5
       },
       {
-        "slug": "pig-latin",
-        "name": "Pig Latin",
-        "uuid": "cae7aa86-e805-41b3-9025-82146f585b4c",
+        "slug": "yacht",
+        "name": "Yacht",
+        "uuid": "07d5ebc9-cd64-4f33-ba7e-e600192cfaa1",
         "practices": [],
         "prerequisites": [],
         "difficulty": 5
