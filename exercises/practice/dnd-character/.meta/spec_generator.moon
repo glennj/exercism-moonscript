@@ -1,5 +1,5 @@
 {
-  module_name: 'DnD',
+  module_imports: {'modifier', 'ability', 'character'},
 
   test_helpers: [[
   require 'dnd_assertions'
@@ -11,36 +11,36 @@
     switch case.property
       when 'modifier'
         lines = {
-          "assert.are.equal #{case.expected}, DnD.modifier #{case.input.score}"
+          "assert.are.equal #{case.expected}, modifier #{case.input.score}"
         }
       when 'ability'
         lines = {
           "for i = 1, 50",
-          "  score = DnD.ability!",
+          "  score = ability!",
           "  assert.between score, 3, 18"
         }
       when 'character'
         if case.description == "random character is valid"
           lines = {
-            "character = DnD.character!",
-            "assert.between character.strength, 3, 18",
-            "assert.between character.dexterity, 3, 18",
-            "assert.between character.constitution, 3, 18",
-            "assert.between character.intelligence, 3, 18",
-            "assert.between character.wisdom, 3, 18",
-            "assert.between character.charisma, 3, 18",
-            "assert.are.equal (10 + DnD.modifier character.constitution), character.hitpoints"
+            "player = character!",
+            "assert.between player.strength, 3, 18",
+            "assert.between player.dexterity, 3, 18",
+            "assert.between player.constitution, 3, 18",
+            "assert.between player.intelligence, 3, 18",
+            "assert.between player.wisdom, 3, 18",
+            "assert.between player.charisma, 3, 18",
+            "assert.are.equal (10 + modifier player.constitution), player.hitpoints"
           }
         else
           lines = {
-            "character = DnD.character!",
-            "assert.are.equal character.strength, character.strength",
-            "assert.are.equal character.dexterity, character.dexterity",
-            "assert.are.equal character.constitution, character.constitution",
-            "assert.are.equal character.intelligence, character.intelligence",
-            "assert.are.equal character.wisdom, character.wisdom",
-            "assert.are.equal character.charisma, character.charisma",
-            "assert.are.equal character.hitpoints, character.hitpoints"
+            "player = character!",
+            "assert.are.equal player.strength, player.strength",
+            "assert.are.equal player.dexterity, player.dexterity",
+            "assert.are.equal player.constitution, player.constitution",
+            "assert.are.equal player.intelligence, player.intelligence",
+            "assert.are.equal player.wisdom, player.wisdom",
+            "assert.are.equal player.charisma, player.charisma",
+            "assert.are.equal player.hitpoints, player.hitpoints"
           }
 
     table.concat [indent line, level for line in *lines], '\n'

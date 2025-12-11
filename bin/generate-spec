@@ -113,7 +113,12 @@ spec_generator = require('spec_generator')
 tests_toml_path = exercise_directory .. '/.meta/tests.toml'
 included_tests = included_tests_from_toml(tests_toml_path)
 
-spec = "#{spec_generator.module_name} = require '#{snake_name}'"
+spec = ''
+if spec_generator.module_name
+  spec ..= "#{spec_generator.module_name} = require '#{snake_name}'"
+elseif spec_generator.module_imports
+  spec ..= "import #{table.concat spec_generator.module_imports, ', '} from require '#{snake_name}'"
+
 spec ..= "\n\n" .. process(canonical_data)
 
 spec_path = exercise_directory .. '/' .. snake_name .. '_spec.moon'

@@ -36,11 +36,13 @@
 
             This generator module returns a table with 2 or 3 elements:
 
-            - `module_name` : this is the left-hand side of `${module_name} = require '${slug_name}'` in the test file
-            - `generate_test` : this is a function that creates the body of each test case. It takes 2 parameters:
+            - (required) _one_ of the following
+                - `module_name`: (string) this is the left-hand side of `${module_name} = require '${slug_name}'` in the test file
+                - `module_imports`: (list of strings) this is the list of names that appear in `import ${names} from require '${slug_name}'` in the test file
+            - (required) `generate_test`: this is a function that creates the body of each test case. It takes 2 parameters:
                 - `case` is the Lua object for the test case 
                 - `level`, default value 2, is the indentation level of the body.
-            - `test_helpers` (optional) : a block of code that gets added at the top of the top-level `describe` block.
+            - (optional) `test_helpers`: (string) a block of code that gets added at the top of the top-level `describe` block.
 
            Look to see how it's implemented for other exercises.
 
