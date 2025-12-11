@@ -106,12 +106,12 @@ assert os.execute('curl "' .. canonical_data_url .. '" -s -o "' .. canonical_dat
 canonical_data_json = read_file(canonical_data_path)
 canonical_data = json.decode(canonical_data_json)
 
+tests_toml_path = exercise_directory .. '/.meta/tests.toml'
+included_tests = included_tests_from_toml(tests_toml_path)
+
 assert os.execute("moonc #{generator_module}")
 package.path ..= ";#{exercise_directory}/.meta/?.lua"
 spec_generator = require('spec_generator')
-
-tests_toml_path = exercise_directory .. '/.meta/tests.toml'
-included_tests = included_tests_from_toml(tests_toml_path)
 
 spec = ''
 if spec_generator.module_name
