@@ -309,17 +309,25 @@
         "difficulty": 4
       },
       {
-        "slug": "pig-latin",
-        "name": "Pig Latin",
-        "uuid": "cae7aa86-e805-41b3-9025-82146f585b4c",
+        "slug": "robot-simulator",
+        "name": "Robot Simulator",
+        "uuid": "55452cf4-0037-4bf5-a518-c16fb5d1da83",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 5
+        "difficulty": 4
       },
       {
         "slug": "yacht",
         "name": "Yacht",
         "uuid": "07d5ebc9-cd64-4f33-ba7e-e600192cfaa1",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "pig-latin",
+        "name": "Pig Latin",
+        "uuid": "cae7aa86-e805-41b3-9025-82146f585b4c",
         "practices": [],
         "prerequisites": [],
         "difficulty": 5
