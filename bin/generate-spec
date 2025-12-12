@@ -56,7 +56,7 @@ handle_no_generator = ->
   stub = [==[
 {
   module_name: '%s',
-  -- or, module_imports = {'func1', 'func2', ...},
+  -- or, module_imports: {'func1', 'func2', ...},
 
   -- optional:
   test_helpers: [[
