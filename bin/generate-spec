@@ -55,15 +55,15 @@ handle_no_generator = ->
 
   stub = [==[
 {
-  module_name = '%s',
+  module_name: '%s',
   -- or, module_imports = {'func1', 'func2', ...},
 
   -- optional:
-  test_helpers = [[
+  test_helpers: [[
   A block of code here
 ]]
 
-  generate_test = (case, level) ->
+  generate_test: (case, level) ->
     local lines
     -- you may want to `switch case.property` here
     lines = {
@@ -147,7 +147,12 @@ included_tests = included_tests_from_toml(tests_toml_path)
 package.moonpath = "#{exercise_directory}/.meta/?.moon;#{package.moonpath}"
 ok, spec_generator = pcall require, 'spec_generator'
 
-handle_no_generator! if not ok
+if not ok
+  if spec_generator\find "module 'spec_generator' not found:"
+    handle_no_generator!
+  else
+    print spec_generator
+    os.exit(1)
 
 spec = ''
 if spec_generator.module_name

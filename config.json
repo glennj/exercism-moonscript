@@ -325,6 +325,14 @@
         "difficulty": 4
       },
       {
+        "slug": "luhn",
+        "name": "Luhn",
+        "uuid": "8b2916c6-5ffc-489a-bedb-d5402b3d7152",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "robot-simulator",
         "name": "Robot Simulator",
         "uuid": "55452cf4-0037-4bf5-a518-c16fb5d1da83",
