@@ -357,6 +357,14 @@
         "difficulty": 4
       },
       {
+        "slug": "two-bucket",
+        "name": "Two Bucket",
+        "uuid": "d6d79e07-fd43-45d0-b3f6-dbb47193c8dd",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "yacht",
         "name": "Yacht",
         "uuid": "07d5ebc9-cd64-4f33-ba7e-e600192cfaa1",

@@ -10,9 +10,11 @@
     bin/add-practice-exercise ${slug_name}
     ```
 
-    This creates the scaffolding for the new exercise.
-    The test, stub and example files are empty.
-    The canonical data from problem-specifications gets added into your local `./canonical-data` directory.
+    This creates the scaffolding for the new exercise:
+
+    - The test, stub and example files are empty.
+    - The canonical data from problem-specifications gets added into your local `canonical-data` directory.
+    - A stub test generator is created: `exercises/practice/${slug_name}/.meta/spec_generator.moon`
 
 1. Review the canonical data and decide if there are any tests cases to exclude.
 
@@ -20,10 +22,10 @@
 
 1. Considering the canonical data, decide if this exercise makes sense to use a test generator.
 
-    1. If no, create the test suite manually:
+    1. If no, delete the spec_generator.moon file and create the test suite manually:
 
         ```none
-        exercises/practice/${slug_name}/${slug_name}_spec.moon
+        exercises/practice/${slug_name}/${slug_snakecase_name}_spec.moon
         ```
 
         - Use the file `canonical-data/${slug_name}.json` to create the tests.
@@ -31,17 +33,9 @@
 
     2. If yes:
 
-        1. Run this command
+        1. Edit the spec_generator.
 
-            ```sh
-            bin/generate-spec ${slug_name}
-            ```
-
-            and answer "yes" when asked if you want to create a stub for it.
-
-            This will create `exercises/practice/${slug_name}/.meta/spec_generator.moon` with some stub contents.
-
-            This generator module returns a table with 2 or 3 elements:
+            This is a MoonScript module that returns a table with 2 or 3 elements:
 
             - (required) _one_ of the following
                 - `module_name`: (string) this is the left-hand side of `${module_name} = require '${slug_name}'` in the test file
@@ -55,9 +49,7 @@
             The `space-age` one is interesting: it uses the test_helpers block to register a custom assertion, and has expected errors.
 
 
-        2. Referring to the canonical-data, fix the spec_generator module.
-
-        3. Re-run the generator and review the new test suite.
+        2. Run the generator script and review the new test suite.
 
             ```sh
             bin/generate-spec ${slug_name}
@@ -76,6 +68,8 @@
    For classes, provide stubs for the constructor and each method.
    The stubbed function should emit an error.
    See what it looks like in other exercises.
+
+1. Revisit the exercise difficulty in config.json if the implementation was harder/easier than expected.
 
 1. Run `bin/configlet lint` to ensure that the new exercise conforms to Exercism standards.
 
