@@ -5,6 +5,8 @@ require 'moonscript'
 json = require 'dkjson'
 -- import p from require 'moon'
 
+local exercise_name, exercise_directory, spec_generator, included_tests -- forward declarations
+
 
 file_exists = (path) ->
   f = io.open path, 'r'
@@ -45,6 +47,44 @@ included_tests_from_toml = (path) ->
   included
 
 
+handle_no_generator = ->
+  io.stderr\write "[ERROR] #{exercise_name} does have a generator\n"
+  io.stderr\write "Do you want to create a stub for one? [Y/n] "
+  answer = io.read!
+  os.exit(5) if answer\find('^%s*[nN]')
+
+  stub = [==[
+{
+  module_name = '%s',
+  -- or, module_imports = {'func1', 'func2', ...},
+
+  -- optional:
+  test_helpers = [[
+  A block of code here
+]]
+
+  generate_test = (case, level) ->
+    local lines
+    -- you may want to `switch case.property` here
+    lines = {
+      "result = %s.#{case.property} #{case.input}",
+      "expected = #{case.expected}",
+      "assert.are.equal expected, result"
+    }
+    table.concat [indent line, level for line in *lines], '\n'
+}
+]==]
+
+  camel = exercise_name\gsub('^%l', (c) -> c\upper!)\gsub('-(%l)', (c) -> c\upper!)
+  generator = "#{exercise_directory}/.meta/spec_generator.moon"
+  fh = io.open(generator, 'w')
+  fh\write stub\format(camel, camel)
+  fh\close!
+  print "\nCreated #{generator}, go edit it!"
+  print " - refer to canonical-data/#{exercise_name}.json"
+  os.exit!
+
+
 export indent, quote -- mark as global so spec_generators can see them
 
 indent = (text, level) -> string.rep('  ', level) .. text
@@ -56,7 +96,6 @@ quote = (str) ->
     "'#{str}'"
 
 
-local exercise_name, spec_generator, included_tests -- forward declarations
 test_cmd = 'it'
 
 process = (node, level=0) ->
@@ -93,12 +132,6 @@ snake_name = exercise_name\gsub("-", "_")
 
 exercise_directory = 'exercises/practice/' .. exercise_name
 
-generator_module = "#{exercise_directory}/.meta/spec_generator.moon"
-
-if not file_exists(generator_module)
-  io.stderr\write "[ERROR] #{generator_module} does not exist\n"
-  os.exit(5)
-
 canonical_data_url = "https://raw.githubusercontent.com/exercism/problem-specifications/main/exercises/#{exercise_name}/canonical-data.json"
 canonical_data_path = "canonical-data/#{exercise_name}.json"
 
@@ -112,7 +145,9 @@ tests_toml_path = exercise_directory .. '/.meta/tests.toml'
 included_tests = included_tests_from_toml(tests_toml_path)
 
 package.moonpath = "#{exercise_directory}/.meta/?.moon;#{package.moonpath}"
-spec_generator = require 'spec_generator'
+ok, spec_generator = pcall require, 'spec_generator'
+
+handle_no_generator! if not ok
 
 spec = ''
 if spec_generator.module_name
