@@ -33,6 +33,26 @@
     ]
   },
   "exercises": {
+    "works-in-progress": [
+      {
+        "slug": "gigasecond",
+        "name": "Gigasecond",
+        "uuid": "fa599a9b-9cc2-44f7-8593-4dea6b1eccc0",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3,
+        "status": "wip"
+      },
+      {
+        "slug": "grains",
+        "name": "Grains",
+        "uuid": "e62375f1-ccdf-4780-9ab5-cc34dcd3f7e6",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "status": "wip"
+      }
+    ],
     "practice": [
       {
         "slug": "hello-world",
@@ -81,15 +101,6 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 2
-      },
-      {
-        "slug": "grains",
-        "name": "Grains",
-        "uuid": "e62375f1-ccdf-4780-9ab5-cc34dcd3f7e6",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 2,
-        "status": "wip"
       },
       {
         "slug": "hamming",
@@ -242,15 +253,6 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 3
-      },
-      {
-        "slug": "gigasecond",
-        "name": "Gigasecond",
-        "uuid": "fa599a9b-9cc2-44f7-8593-4dea6b1eccc0",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3,
-        "status": "wip"
       },
       {
         "slug": "micro-blog",
