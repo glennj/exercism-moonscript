@@ -235,6 +235,14 @@
         "difficulty": 3
       },
       {
+        "slug": "matrix",
+        "name": "Matrix",
+        "uuid": "f209b876-0793-4a41-a947-8b362381448e",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "micro-blog",
         "name": "Micro Blog",
         "uuid": "e4f7ccfc-fcc4-4b93-a392-e6e5b3df95c1",
@@ -331,14 +339,6 @@
         "difficulty": 4
       },
       {
-        "slug": "matrix",
-        "name": "Matrix",
-        "uuid": "f209b876-0793-4a41-a947-8b362381448e",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 4
-      },
-      {
         "slug": "nth-prime",
         "name": "Nth Prime",
         "uuid": "a0dc033f-e760-4f34-abf4-850451044ba5",
@@ -398,6 +398,14 @@
         "slug": "pig-latin",
         "name": "Pig Latin",
         "uuid": "cae7aa86-e805-41b3-9025-82146f585b4c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "spiral-matrix",
+        "name": "Spiral Matrix",
+        "uuid": "bba5483b-a021-4a18-a1db-ed6529cba0fb",
         "practices": [],
         "prerequisites": [],
         "difficulty": 5
