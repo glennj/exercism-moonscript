@@ -33,26 +33,6 @@
     ]
   },
   "exercises": {
-    "works-in-progress": [
-      {
-        "slug": "gigasecond",
-        "name": "Gigasecond",
-        "uuid": "fa599a9b-9cc2-44f7-8593-4dea6b1eccc0",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3,
-        "status": "wip"
-      },
-      {
-        "slug": "grains",
-        "name": "Grains",
-        "uuid": "e62375f1-ccdf-4780-9ab5-cc34dcd3f7e6",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 2,
-        "status": "wip"
-      }
-    ],
     "practice": [
       {
         "slug": "hello-world",
@@ -370,6 +350,14 @@
         "slug": "sieve",
         "name": "Sieve",
         "uuid": "a78a4a9e-5187-4db4-a10a-e174dba78f4c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "twelve-days",
+        "name": "Twelve Days",
+        "uuid": "69322771-7756-42a9-a79b-8700ce877700",
         "practices": [],
         "prerequisites": [],
         "difficulty": 4
