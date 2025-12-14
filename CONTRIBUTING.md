@@ -66,6 +66,7 @@
    For classes, provide stubs for the constructor and each method.
    The stubbed function should emit an error.
    See what it looks like in other exercises.
+   `complex-numbers` is a good one.
 
 1. Revisit the exercise difficulty in config.json if the implementation was harder/easier than expected.
 
