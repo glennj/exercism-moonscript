@@ -22,16 +22,12 @@
 
 1. Considering the canonical data, decide if this exercise makes sense to use a test generator.
 
-    1. If no, delete the spec_generator.moon file and create the test suite manually:
-
-        ```none
-        exercises/practice/${slug_name}/${slug_snakecase_name}_spec.moon
-        ```
-
+    - If no:
+        - **delete the stubbed .meta/spec_generator** and create the test suite manually.
         - Use the file `canonical-data/${slug_name}.json` to create the tests.
         - Remember, this track uses TDD, so the first test uses `it` and all the rest use `pending`.
 
-    2. If yes:
+    - If yes:
 
         1. Edit the spec_generator.
 
@@ -54,6 +50,8 @@
             ```sh
             bin/generate-spec ${slug_name}
             ```
+
+            Loop back to the previous step as needed.
 
 1. Create the example solution: `.meta/example.moon`
 
