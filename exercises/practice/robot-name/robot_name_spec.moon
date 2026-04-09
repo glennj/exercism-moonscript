@@ -56,12 +56,12 @@ describe 'robot-name', ->
       assert.is.equal sample_size, table_size seen
 
 
-    -- The next test is optional.
-    -- Set the environment variable ENABLE_OPTIONAL_TESTS to run it:
-    -- For example, in bash run:  ENABLE_OPTIONAL_TESTS=true busted
+    -- The next tests are optional.
+    -- Set the environment variable BONUS_TESTS to run it:
+    -- For example, in bash run:  BONUS_TESTS=true busted
     -- Check the performance tip in the hints.
 
-    if os.getenv('ENABLE_OPTIONAL_TESTS') == 'true'
+    if os.getenv('BONUS_TESTS') == 'true'
       pending 'all the robots and more', ->
         Robot\reset_names!
         sample_size = 26 * 26 * 1000
