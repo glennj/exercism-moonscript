@@ -3,7 +3,7 @@ SimpleLinkedList = require 'simple_linked_list'
 describe 'simple-linked-list:', ->
   describe 'count:', ->
     it 'Empty list has length of zero', ->
-      list = SimpleLinkedList {}
+      list = SimpleLinkedList!
       result = list\count!
       assert.are.equal 0, result
 
@@ -19,7 +19,7 @@ describe 'simple-linked-list:', ->
 
   describe 'pop:', ->
     pending 'Pop from empty list is an error', ->
-      list = SimpleLinkedList {}
+      list = SimpleLinkedList!
       f = -> list\pop!
       assert.has.error f, 'list is empty'
 
@@ -69,7 +69,7 @@ describe 'simple-linked-list:', ->
       assert.are.equal 3, result
 
     pending 'Push and pop', ->
-      list = SimpleLinkedList {}
+      list = SimpleLinkedList!
       list\push 1
       list\push 2
       result = list\pop!
@@ -86,7 +86,7 @@ describe 'simple-linked-list:', ->
 
   describe 'peek:', ->
     pending 'Peek on empty list is an error', ->
-      list = SimpleLinkedList {}
+      list = SimpleLinkedList!
       f = -> list\peek!
       assert.has.error f, 'list is empty'
 
@@ -108,7 +108,7 @@ describe 'simple-linked-list:', ->
       assert.are.equal 2, result
 
     pending 'Can peek after a pop and push', ->
-      list = SimpleLinkedList {}
+      list = SimpleLinkedList!
       list\push 1
       list\push 2
       result = list\peek!
@@ -123,7 +123,7 @@ describe 'simple-linked-list:', ->
 
   describe 'toList FIFO:', ->
     pending 'Empty linked list to list is empty', ->
-      list = SimpleLinkedList {}
+      list = SimpleLinkedList!
       result = list\toList!
       assert.are.same {}, result
 
@@ -133,7 +133,7 @@ describe 'simple-linked-list:', ->
       assert.are.same {1, 2, 3}, result
 
     pending 'To list after a pop', ->
-      list = SimpleLinkedList {}
+      list = SimpleLinkedList!
       list\push 1
       list\push 2
       list\push 3
@@ -145,7 +145,7 @@ describe 'simple-linked-list:', ->
 
   describe 'reverse:', ->
     pending 'Reversed empty list has same values', ->
-      list = SimpleLinkedList {}
+      list = SimpleLinkedList!
       list\reverse!
       result = list\toList!
       assert.are.same {}, result

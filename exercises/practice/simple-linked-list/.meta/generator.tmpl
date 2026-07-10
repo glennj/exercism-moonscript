@@ -5,7 +5,7 @@ describe <%- h.quote(slug.kebab .. ':') %>, ->
   describe <%- h.quote(group.description .. ':') %>, ->
 <%   for j, case in ipairs(group.cases) do -%>
     <%= test_cmd(i == 1 and j == 1) %> <%- h.quote(case.description) %>, ->
-<%     if case.input.initialValues then -%>
+<%     if case.input.initialValues and #case.input.initialValues > 0 then -%>
       list = <%= slug.pascal %> <%= h.int_list(case.input.initialValues) %>
 <%     else -%>
       list = <%= slug.pascal %>!
