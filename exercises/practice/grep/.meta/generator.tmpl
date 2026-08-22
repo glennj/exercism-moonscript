@@ -1,0 +1,53 @@
+import grep from require <%- h.quote(slug.snake) %>
+file_util = require 'pl.file'
+
+
+contents = {
+  "iliad.txt": [[
+Achilles sing, O Goddess! Peleus' son;
+His wrath pernicious, who ten thousand woes
+Caused to Achaia's host, sent many a soul
+Illustrious into Ades premature,
+And Heroes gave (so stood the will of Jove)
+To dogs and to all ravening fowls a prey,
+When fierce dispute had separated once
+The noble Chief Achilles from the son
+Of Atreus, Agamemnon, King of men.]],
+
+  "midsummer-night.txt": [[
+I do entreat your grace to pardon me.
+I know not by what power I am made bold,
+Nor how it may concern my modesty,
+In such a presence here to plead my thoughts;
+But I beseech your grace that I may know
+The worst that may befall me in this case,
+If I refuse to wed Demetrius.]],
+
+  "paradise-lost.txt": [[
+Of Mans First Disobedience, and the Fruit
+Of that Forbidden Tree, whose mortal tast
+Brought Death into the World, and all our woe,
+With loss of Eden, till one greater Man
+Restore us, and regain the blissful Seat,
+Sing Heav'nly Muse, that on the secret top
+Of Oreb, or of Sinai, didst inspire
+That Shepherd, who first taught the chosen Seed]]
+}
+
+before_each -> file_util.write f, g for f, g in pairs contents
+after_each -> file_util.delete f for f, _ in pairs contents
+
+
+describe <%- h.quote(slug.kebab .. ':') %>, ->
+<% for i, group in ipairs(data.cases) do -%>
+  describe <%- h.quote(group.description .. ':') %>, ->
+
+<%   for j, case in ipairs(group.cases) do -%>
+<%     files = h.word_list(case.input.files) -%>
+    <%= test_cmd(i == 1 and j == 1) %> <%- h.quote(case.description) %>, ->
+      result = <%= case.property %> <%- h.word_list(case.input.flags) %>, <%- h.quote(case.input.pattern) %>, <%- files:sub(2, -2) %>
+      expected = <%- h.string_list(case.expected, 3, {inline=0}) %>
+      assert.are.same expected, result
+
+<%   end -%>
+<% end -%>
