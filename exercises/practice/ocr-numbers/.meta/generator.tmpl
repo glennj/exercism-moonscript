@@ -1,0 +1,14 @@
+import convert from require <%- h.quote(slug.snake) %>
+
+describe <%- h.quote(slug.kebab .. ':') %>, ->
+<% for i, case in ipairs(data.cases) do -%>
+  <%= test_cmd(i == 1) %> <%- h.quote(case.description) %>, ->
+    rows = <%- h.string_list(case.input.rows, 2, {inline=0}) %>
+<%   if not case.expected.error then -%>
+    assert.are.equal <%- h.quote(case.expected) %>, convert rows
+<%   else -%>
+    f = -> <%= case.property %> rows
+    assert.has.errors f, <%- h.quote(case.expected.error) %>
+<%   end -%>
+
+<% end -%>
