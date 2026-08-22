@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "glennj"
+  ],
+  "files": {
+    "solution": [
+      "grep.moon"
+    ],
+    "test": [
+      "grep_spec.moon"
+    ],
+    "example": [
+      ".meta/example.moon"
+    ]
+  },
+  "blurb": "Search a file for lines matching a regular expression pattern.",
+  "source": "Conversation with Nate Foster.",
+  "source_url": "https://www.cs.cornell.edu/courses/cs3110/2014sp/hw/0/ps0.pdf"
+}
