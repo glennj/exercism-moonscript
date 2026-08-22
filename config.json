@@ -795,6 +795,14 @@
         "difficulty": 5
       },
       {
+        "slug": "ocr-numbers",
+        "name": "OCR Numbers",
+        "uuid": "52d9b8d1-7dcd-4056-8a13-cd74a65b6187",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "pig-latin",
         "name": "Pig Latin",
         "uuid": "cae7aa86-e805-41b3-9025-82146f585b4c",
